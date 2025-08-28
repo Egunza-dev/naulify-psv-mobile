@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "579728864798",
+    "project_id": "naulify-app",
+    "storage_bucket": "naulify-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579728864798:android:534f62c1d6c54ddb5d600f",
+        "android_client_info": {
+          "package_name": "com.anonymous.naulify_v2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579728864798-bin9tr2dvrb7dc979s102pfgg0p1pd28.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.anonymous.naulify_v2",
+            "certificate_hash": "50c966863a386eade3149562e6224a8aba2359e9"
+          }
+        },
+        {
+          "client_id": "579728864798-1q9188ne549ogvh2bracdsrm7bu7rtct.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFja8zKiTWuOzaXfIJ1ET3EzsIplkiksc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579728864798-1q9188ne549ogvh2bracdsrm7bu7rtct.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
