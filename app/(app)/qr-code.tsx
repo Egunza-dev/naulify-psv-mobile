@@ -40,7 +40,7 @@ const QrCodeScreen = () => {
           <body style="font-family: sans-serif; text-align: center; padding: 40px;">
             <h1 style="font-size: 24px;">Scan this code to pay fare for:</h1>
             <h2 style="font-size: 32px; margin: 20px 0;">${profile.vehicleRegistration}</h2>
-            <img src="data:image/svg+xml;base64,${data}" width="80%" height="auto" style="max-width: 400px;"/>
+            <img src="data:image/png;base64,${data}" width="80%" height="auto" style="max-width: 400px;"/>
             <p style="margin-top: 40px; font-size: 16px;">A printed copy should be clearly displayed inside your vehicle.</p>
           </body>
         </html>
