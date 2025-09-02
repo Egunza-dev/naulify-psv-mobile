@@ -116,7 +116,7 @@ const Login = () => {
       <View style={styles.logoContainer}>
         <NaulifyLogo size={80} />
         <Text style={styles.title}>Naulify</Text>
-        <Text style={styles.subtitle}>(PSV Owner Portal)</Text>
+        <Text style={styles.subtitle}>(PSV Portal)</Text>
       </View>
 
       <View style={styles.tabs}>
