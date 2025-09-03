@@ -10,7 +10,7 @@
     "newArchEnabled": true,
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon-foreground.png",
+        "foregroundImage": "./assets/images/icon-foreground.png",
         "backgroundColor": "#2a2a2a"
       },
       "edgeToEdgeEnabled": true,
