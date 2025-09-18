@@ -17,7 +17,7 @@
         "foregroundImage": "./assets/images/icon-foreground.png",
         "backgroundColor": "#2a2a2a"
       },
-      "package": "com.anonymous.naulify_v2"
+      "package": "com.anonymous.naulify_v2",
       "googleServicesFile": "./google-services.json"
     },
     "web": {
@@ -31,7 +31,7 @@
         "@react-native-google-signin/google-signin",
         {
           "serverClientId": "579728864798-1q9188ne549ogvh2bracdsrm7bu7rtct.apps.googleusercontent.com",
-          "iosUrlScheme": "com.googleusercontent.apps.579728864798-078nlqmtvqums5mrfc62e1v8rgfc1q6k"
+          "iosUrlScheme": "com.googleusercontent.apps.579728864798-078nlqmtvqums5mrfc62e1v8rgfc1q6k",
           "androidClientId": "579728864798-bf8v7v1kq2og61l8hkacnki3mmpnlpge.apps.googleusercontent.com"
         }
       ]
