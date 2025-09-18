@@ -11,8 +11,7 @@
       "distribution": "internal"
     },
     "production": {
-      // This is the profile we will use.
-      // We are telling it to use the default production credential management.
+      "android": { "buildType": "apk" }
     }
   },
   "submit": {
