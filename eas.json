@@ -1,7 +1,6 @@
 {
   "cli": {
-    "version": ">= 16.17.4",
-    "appVersionSource": "remote"
+    "version": ">= 7.6.0"
   },
   "build": {
     "development": {
@@ -12,9 +11,8 @@
       "distribution": "internal"
     },
     "production": {
-      "android": {
-        "buildType": "apk" 
-      }
+      // This is the profile we will use.
+      // We are telling it to use the default production credential management.
     }
   },
   "submit": {

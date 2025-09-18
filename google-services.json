@@ -14,19 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "579728864798-5pumdvn3sulhjthvlv8cp9rprb88o9a5.apps.googleusercontent.com",
+          "client_id": "579728864798-bf8v7v1kq2og61l8hkacnki3mmpnlpge.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.anonymous.naulify_v2",
-            "certificate_hash": "fa323b1b6af83547cee950d3f72c52179df74124"
-          }
-        },
-        {
-          "client_id": "579728864798-bin9tr2dvrb7dc979s102pfgg0p1pd28.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.anonymous.naulify_v2",
-            "certificate_hash": "50c966863a386eade3149562e6224a8aba2359e9"
+            "certificate_hash": "8a549e5b4f1b456bc83ba1e26ab06cd59f54b4c4"
           }
         },
         {

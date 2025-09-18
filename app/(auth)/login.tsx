@@ -51,7 +51,7 @@ const Login = () => {
     }
     };
   
-  // **THE FIX IS HERE: A completely rewritten Google Sign-In handler**
+  
   const handleGoogleSignIn = async () => {
     setGoogleLoading(true);
     setError('');
