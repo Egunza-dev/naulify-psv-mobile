@@ -8,7 +8,7 @@
     "scheme": "naulifyv2",
     "userInterfaceStyle": "dark",
     "splash": {
-      "image": "./assets/images/splash-icon.png",
+      "image": "./assets/images/icon-foreground.png",
       "resizeMode": "contain",
       "backgroundColor": "#2a2a2a"
     },
