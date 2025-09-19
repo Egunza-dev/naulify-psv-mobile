@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View, TextInput, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Alert, Platform } from 'react-native';
+import { View, TextInput, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Alert, Platform, ScrollView } from 'react-native';
 import { signInWithEmailAndPassword, signInWithCredential, signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider } from '../../firebaseConfig';
 import { Link } from 'expo-router';
@@ -8,7 +8,7 @@ import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import NaulifyLogo from './../components/Logo';
 
 const Login = () => {
-  // All your state and logic functions remain unchanged.
+  // All state and logic functions remain unchanged.
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -16,7 +16,7 @@ const Login = () => {
   const [googleLoading, setGoogleLoading] = useState(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-  const validateForm = () => { /* ... no changes here ... */
+  const validateForm = () => { /* ... no changes ... */
     setError('');
     if (!email || !password) {
       setError('Please fill in both email and password.');
@@ -24,7 +24,7 @@ const Login = () => {
     }
     return true;
   };
-  const handleLogin = async () => { /* ... no changes here ... */
+  const handleLogin = async () => { /* ... no changes ... */
     if (!validateForm()) return;
     setLoading(true);
     setError('');
@@ -35,7 +35,7 @@ const Login = () => {
       handleAuthError(err);
     }
   };
-  const handleGoogleSignIn = async () => { /* ... no changes here ... */
+  const handleGoogleSignIn = async () => { /* ... no changes ... */
     setGoogleLoading(true);
     setError('');
     try {
@@ -44,22 +44,18 @@ const Login = () => {
       } else {
         await GoogleSignin.hasPlayServices();
         const { idToken } = await GoogleSignin.signIn();
-        if (!idToken) {
-          throw new Error('Google Sign-In failed to return an ID token.');
-        }
+        if (!idToken) throw new Error('Google Sign-In failed to return an ID token.');
         const googleCredential = googleProvider.credential(idToken);
         await signInWithCredential(auth, googleCredential);
       }
     } catch (err: any) {
       setGoogleLoading(false);
-      if (err.code === 'auth/popup-closed-by-user') {
-        return;
-      }
+      if (err.code === 'auth/popup-closed-by-user') return;
       setError('Google Sign-In failed. Please try again.');
       console.log('Google Sign-In Error:', JSON.stringify(err, null, 2));
     }
   };
-  const handleAuthError = (err: any) => { /* ... no changes here ... */
+  const handleAuthError = (err: any) => { /* ... no changes ... */
     switch (err.code) {
       case 'auth/user-not-found':
       case 'auth/wrong-password':
@@ -79,11 +75,10 @@ const Login = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.logoContainer}>
         <NaulifyLogo size={60} color="#fff" />
         <Text style={styles.title}>Naulify</Text>
-        {/* **FIX 1: Corrected the subtitle text** */}
         <Text style={styles.subtitle}>(PSV Portal)</Text>
       </View>
 
@@ -101,15 +96,18 @@ const Login = () => {
       
       {error ? <Text style={styles.errorText}>{error}</Text> : null}
 
-      <TextInput
-        style={styles.input}
-        placeholder="user@example.com"
-        placeholderTextColor="#6e6e6e"
-        value={email}
-        onChangeText={setEmail}
-        keyboardType="email-address"
-        autoCapitalize="none"
-      />
+      {/* **FIX 1: Wrapped email input in a View for consistent spacing** */}
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder="user@example.com"
+          placeholderTextColor="#6e6e6e"
+          value={email}
+          onChangeText={setEmail}
+          keyboardType="email-address"
+          autoCapitalize="none"
+        />
+      </View>
       
       <View style={styles.passwordContainer}>
         <TextInput
@@ -138,7 +136,6 @@ const Login = () => {
       
       <View style={styles.dividerContainer}>
         <View style={styles.divider} />
-        {/* **FIX 2: Corrected the divider text** */}
         <Text style={styles.dividerText}>OR</Text>
         <View style={styles.divider} />
       </View>
@@ -151,14 +148,14 @@ const Login = () => {
             </>
         )}
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 };
 
-
+// --- THIS IS THE NEW, ROBUSTLY STYLED STYLESHEET ---
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1, // Use flexGrow for ScrollView content
     justifyContent: 'center',
     padding: 24,
     backgroundColor: '#2a2a2a',
@@ -177,7 +174,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#a0a0a0',
     marginTop: 4,
-    // **FIX 3: Explicitly center the text to prevent truncation**
+    // **FIX 2: Ensure the text container has width**
+    width: '100%',
     textAlign: 'center',
   },
   tabContainer: {
@@ -202,6 +200,10 @@ const styles = StyleSheet.create({
     width: '40%',
     backgroundColor: '#fff',
     marginTop: 12,
+  },
+  // **FIX 3: Created a dedicated container for consistent spacing**
+  inputContainer: {
+    marginBottom: 16,
   },
   input: {
     backgroundColor: '#3d3d3d',
@@ -257,8 +259,7 @@ const styles = StyleSheet.create({
   dividerText: {
     color: '#a0a0a0',
     marginHorizontal: 16,
-    // **FIX 4: Prevent the text from being squished by the dividers**
-    flexShrink: 0,
+    // **FIX 4: Removed flexShrink as it's no longer needed with corrected text**
   },
   googleButton: {
     backgroundColor: '#fff',
