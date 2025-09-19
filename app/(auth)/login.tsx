@@ -96,7 +96,6 @@ const Login = () => {
       
       {error ? <Text style={styles.errorText}>{error}</Text> : null}
 
-      {/* **FIX 1: Wrapped email input in a View for consistent spacing** */}
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
@@ -130,9 +129,12 @@ const Login = () => {
         {loading ? <ActivityIndicator color="#fff" /> : <Text style={styles.buttonText}>LOGIN</Text>}
       </TouchableOpacity>
 
-      <TouchableOpacity>
-        <Text style={styles.forgotPassword}>Forgot Password?</Text>
-      </TouchableOpacity>
+      {/* **FIX 1: Wrapped the button with the correct Link component** */}
+      <Link href="/(auth)/forgot-password" asChild>
+        <TouchableOpacity>
+          <Text style={styles.forgotPassword}>Forgot Password?</Text>
+        </TouchableOpacity>
+      </Link>
       
       <View style={styles.dividerContainer}>
         <View style={styles.divider} />
@@ -152,10 +154,10 @@ const Login = () => {
   );
 };
 
-// --- THIS IS THE NEW, ROBUSTLY STYLED STYLESHEET ---
+// --- STYLESHEET WITH THE FINAL FIXES ---
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1, // Use flexGrow for ScrollView content
+    flexGrow: 1,
     justifyContent: 'center',
     padding: 24,
     backgroundColor: '#2a2a2a',
@@ -174,8 +176,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#a0a0a0',
     marginTop: 4,
-    // **FIX 2: Ensure the text container has width**
-    width: '100%',
     textAlign: 'center',
   },
   tabContainer: {
@@ -201,7 +201,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     marginTop: 12,
   },
-  // **FIX 3: Created a dedicated container for consistent spacing**
   inputContainer: {
     marginBottom: 16,
   },
@@ -250,6 +249,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginVertical: 30,
+    // **FIX 2: A more robust styling for the divider**
+    position: 'relative', 
+    height: 20, 
   },
   divider: {
     flex: 1,
@@ -258,8 +260,13 @@ const styles = StyleSheet.create({
   },
   dividerText: {
     color: '#a0a0a0',
-    marginHorizontal: 16,
-    // **FIX 4: Removed flexShrink as it's no longer needed with corrected text**
+    // **FIX 2 (cont.): Position the text absolutely in the center**
+    position: 'absolute',
+    left: '50%',
+    transform: [{ translateX: -20 }], // Adjust for the text width
+    width: 40, // Give it a defined width
+    textAlign: 'center',
+    backgroundColor: '#2a2a2a', // The background color to hide the line behind it
   },
   googleButton: {
     backgroundColor: '#fff',
